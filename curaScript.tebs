@@ -1,0 +1,21 @@
+luanet.load_assembly("TibiaAPI")
+Console = luanet.import_type("Tibia.Objects.Console")
+
+--config
+mana_needed = 40
+life_spell = "Chiyo"
+life_spell_mutto = "Mutto Chiyo"
+percent_mana = Player.Mana * 0.20
+life_player = Player.Hp
+-- end
+
+console = Console(Client)
+
+while(true)do
+	if(Client.LoggedIn and Player ~= nil)then
+	if(life_player <= Player.Hp -(Player.Hp * 0.20))then
+		console:Say(life_spell)
+	end
+end
+	Sleep(2000)
+end
